@@ -2,7 +2,7 @@
 
 pragma solidity 0.7.5;
 
-import "@openzeppelin/contracts/proxy/Initializable.sol";
+import "../../openzeppelin/contracts/proxy/Initializable.sol";
 import "../libraries/Roles.sol";
 import "../interfaces/IAdmins.sol";
 import "../interfaces/IOperators.sol";

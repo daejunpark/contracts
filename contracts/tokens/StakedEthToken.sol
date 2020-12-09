@@ -2,9 +2,9 @@
 
 pragma solidity 0.7.5;
 
-import "@openzeppelin/contracts/math/SafeMath.sol";
-import "@openzeppelin/contracts/math/SignedSafeMath.sol";
-import "@openzeppelin/contracts/utils/SafeCast.sol";
+import "../../openzeppelin/contracts/math/SafeMath.sol";
+import "../../openzeppelin/contracts/math/SignedSafeMath.sol";
+import "../../openzeppelin/contracts/utils/SafeCast.sol";
 import "../interfaces/IStakedEthToken.sol";
 import "../interfaces/IRewardEthToken.sol";
 import "../interfaces/ISettings.sol";

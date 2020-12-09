@@ -2,8 +2,8 @@
 
 pragma solidity 0.7.5;
 
-import "@openzeppelin/contracts/math/SafeMath.sol";
-import "@openzeppelin/contracts/proxy/Initializable.sol";
+import "../../openzeppelin/contracts/math/SafeMath.sol";
+import "../../openzeppelin/contracts/proxy/Initializable.sol";
 import "@uniswap/v2-core/contracts/interfaces/IUniswapV2Pair.sol";
 import "../libraries/Roles.sol";
 import "../interfaces/IAdmins.sol";

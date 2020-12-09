@@ -3,10 +3,10 @@
 pragma solidity 0.7.5;
 pragma abicoder v2;
 
-import "@openzeppelin/contracts/math/SafeMath.sol";
-import "@openzeppelin/contracts/proxy/Initializable.sol";
-import "@openzeppelin/contracts/token/ERC20/IERC20.sol";
-import "@openzeppelin/contracts/token/ERC20/SafeERC20.sol";
+import "../openzeppelin/contracts/math/SafeMath.sol";
+import "../openzeppelin/contracts/proxy/Initializable.sol";
+import "../openzeppelin/contracts/token/ERC20/IERC20.sol";
+import "../openzeppelin/contracts/token/ERC20/SafeERC20.sol";
 import "./interfaces/IManagers.sol";
 import "./interfaces/ISettings.sol";
 import "./interfaces/IPayments.sol";
