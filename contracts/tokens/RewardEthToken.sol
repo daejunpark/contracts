@@ -73,7 +73,7 @@ contract RewardEthToken is IRewardEthToken, ERC20 {
     /**
      * @dev See {IERC20-balanceOf}.
      */
-    function balanceOf(address account) public view override returns (uint256) {
+    function balanceOf(address account) external view override returns (uint256) {
         int256 balance = rewardOf(account);
         return balance > 0 ? balance.toUint256() : 0;
     }
@@ -103,7 +103,7 @@ contract RewardEthToken is IRewardEthToken, ERC20 {
         require(recipient != address(0), "RewardEthToken: transfer to the zero address");
         require(!settings.pausedContracts(address(this)), "RewardEthToken: contract is paused");
 
-        checkpoints[sender] = Checkpoint(rewardPerToken, balanceOf(sender).sub(amount, "RewardEthToken: invalid amount").toInt256());
+        checkpoints[sender] = Checkpoint(rewardPerToken, rewardOf(sender).toUint256().sub(amount, "RewardEthToken: invalid amount").toInt256());
         checkpoints[recipient] = Checkpoint(rewardPerToken, rewardOf(recipient).add(amount.toInt256()));
 
         emit Transfer(sender, recipient, amount);
@@ -153,7 +153,7 @@ contract RewardEthToken is IRewardEthToken, ERC20 {
      */
     function claimRewards(address tokenContract) external override returns (uint256 rewards) {
         require(msg.sender == stakedTokens, "RewardEthToken: permission denied");
-        rewards = balanceOf(tokenContract);
+        rewards = rewardOf(tokenContract).toUint256();
         _transfer(tokenContract, stakedTokens, rewards);
     }
 }
