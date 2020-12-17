@@ -2,7 +2,7 @@
 
 pragma solidity 0.7.5;
 
-import "@openzeppelin/contracts-upgradeable/math/SafeMathUpgradeable.sol";
+import "../../openzeppelin/contracts-upgradeable/math/SafeMathUpgradeable.sol";
 import "../tokens/ERC20.sol";
 
 

@@ -2,8 +2,8 @@
 
 pragma solidity 0.7.5;
 
-import "@openzeppelin/contracts-upgradeable/math/SafeMathUpgradeable.sol";
-import "@openzeppelin/contracts-upgradeable/utils/ReentrancyGuardUpgradeable.sol";
+import     "../openzeppelin/contracts-upgradeable/math/SafeMathUpgradeable.sol";
+import     "../openzeppelin/contracts-upgradeable/utils/ReentrancyGuardUpgradeable.sol";
 import "@uniswap/v2-core/contracts/interfaces/IUniswapV2Pair.sol";
 import "./presets/OwnablePausableUpgradeable.sol";
 import "./interfaces/IRewardEthToken.sol";
