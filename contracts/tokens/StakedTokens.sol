@@ -156,26 +156,17 @@ contract StakedTokens is IStakedTokens, Initializable {
      * @dev See {IStakedTokens-rewardOf}.
      */
     function rewardOf(address _token, address _account) public override view returns (uint256) {
-        uint256 tokenRewardRate = rewardRates[_token];
-        uint256 accountRewardRate = rewardRates[_account];
-
         Token memory token = tokens[_token];
         if (token.totalSupply == 0) {
             return 0;
         }
 
-        // calculate period reward
         uint256 periodReward = IERC20(rewardEthToken).balanceOf(_token);
+        uint256 tokenRewardRate = rewardRates[_token].add(periodReward.mul(1e18).div(token.totalSupply));
+        uint256 accountRewardRate = rewardRates[_account];
+
         uint256 accountBalance = balances[_token][_account];
-        if (periodReward == 0) {
-            return accountBalance.mul(tokenRewardRate.sub(accountRewardRate)).div(1e18);
-        }
-
-        // calculate reward per token used for account reward calculation
-        uint256 rewardRate = tokenRewardRate.add(periodReward.mul(1e18).div(token.totalSupply));
-
-        // calculate period reward
-        return accountBalance.mul(rewardRate.sub(accountRewardRate)).div(1e18);
+        return accountBalance.mul(tokenRewardRate.sub(accountRewardRate)).div(1e18);
     }
 
     /**
